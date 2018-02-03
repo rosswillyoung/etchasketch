@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Etch-A-Sketch</title>
+<style>
+#container {
+    padding-top: 100px;
+    margin: auto;
+    display: grid;
+    width: 800px;
+    height: 600px;
+}
+
+#container > div {
+    display: relative;
+    background-color: black;
+    border: 1px solid white;
+    height: 100%;
+    width: 100%;
+}
+
+</style>
+</head>
+<body>
+    <div id="container">
+    </div>
+</body>
+</html>
+
+<script>
+var num = 16;
+var columns = "auto ";
+var container = document.getElementById("container");
+var x = 0;
+for (var i = 0; i < num - 1; i++) {
+    columns = columns + "auto ";
+}
+container.style.gridTemplateColumns = columns;
+while (x < num) {
+    for (var i = 0; i < num; i++) {
+        var div = document.createElement("div");
+        container.appendChild(div);
+        }
+    x++
+}
+</script>
