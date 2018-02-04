@@ -4,18 +4,24 @@
     <meta charset="UTF-8">
     <title>Etch-A-Sketch</title>
 <style>
+body {
+    background-color: red;
+    width: 75%;
+    height: 75%;
+    margin: auto;
+}
+
 #container {
     padding-top: 100px;
     margin: auto;
     display: grid;
-    width: 800px;
-    height: 600px;
+    width: 1200px;
+    height: 800px;
 }
 
 #container > div {
     display: relative;
-    background-color: black;
-    border: 1px solid white;
+    background-color: gray;
     height: 100%;
     width: 100%;
 }
@@ -29,19 +35,33 @@
 </html>
 
 <script>
-var num = 16;
-var columns = "auto ";
 var container = document.getElementById("container");
-var x = 0;
-for (var i = 0; i < num - 1; i++) {
-    columns = columns + "auto ";
+function createGrid(num=16) {
+    var x = 0;
+    var columns = "auto ";
+    for (var i = 0; i < num - 1; i++) {
+        columns = columns + "auto ";
+    }
+    container.style.gridTemplateColumns = columns;
+    while (x < num) {
+        for (var i = 0; i < num; i++) {
+            var div = document.createElement("div");
+            div.classList.add("innerDiv");
+            container.appendChild(div);
+            }
+        x++
+    }
 }
-container.style.gridTemplateColumns = columns;
-while (x < num) {
-    for (var i = 0; i < num; i++) {
-        var div = document.createElement("div");
-        container.appendChild(div);
-        }
-    x++
+
+createGrid();
+
+var allDivs = document.getElementsByClassName("innerDiv");
+for (i = 0; i < allDivs.length; i++) {
+    allDivs[i].addEventListener("mouseover", changeColor);
 }
+
+function changeColor() {
+    this.style.backgroundColor = "black";
+}
+
 </script>
