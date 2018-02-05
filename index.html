@@ -70,7 +70,7 @@ function createGrid(num=16) {
 	}
 
 	function changeColor() {
-	    this.style.backgroundColor = "black";
+	    this.style.backgroundColor = "#"+(Math.random()*0xFFFFFF<<0).toString(16);
 	}
 }
 
